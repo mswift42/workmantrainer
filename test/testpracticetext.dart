@@ -1,5 +1,4 @@
 import 'package:unittest/unittest.dart';
-import 'package:unittest/html_config.dart';
 import 'dart:html';
 import 'package:workmantrainer/practicetext.dart' show practiceText;
 
@@ -10,4 +9,3 @@ void main() {
     expect(target.text, 'Test Text 1');
   });
 }
-
