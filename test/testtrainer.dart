@@ -29,7 +29,8 @@ void main() {
     var tr = new Trainer('some text');
     tr.errors = 2;
     expect(tr.accuracy(), 78);
-    
+    tr.errors = 1;
+    expect(tr.accuracy(), 89);
   });
   
 }
