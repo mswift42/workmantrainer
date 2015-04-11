@@ -9,9 +9,9 @@
  * Web Starter Kit team.
  *
  */
-@import '_h5bp';
+@import 'vendors/_h5bp';
 
-@import '_roboto';
+@import 'vendors/_roboto';
 
 /*
  * Visual Style Guide styles
@@ -325,4 +325,8 @@ sass-hidden {
   body {
     overflow-y: scroll;
   }
+}
+#textareacontainer {
+  vertical-align:middle;
+  margin-top:2vh;
 }
