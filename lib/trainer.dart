@@ -1,5 +1,8 @@
 library trainer;
 
+import 'dart:html';
+import 'dart:convert';
+
 
 class Trainer{
   int _currentposition = 0;
@@ -9,11 +12,13 @@ class Trainer{
   Trainer(this.targettext);
   
   int get currentposition => _currentposition;
-  void set currentposition(int n) => _currentposition = n;
+  set currentposition(int n) => _currentposition = n;
   
   int currentposforward() => _currentposition++;
   
   int currentposbackward()=> _currentposition--;
+
+  String charAtPosition() => targettext.split('')[_currentposition];
   
   set errors(int n) => _errors = n;
   
@@ -22,4 +27,22 @@ class Trainer{
     return 100 - (_errors.toDouble() / sofar.length.toDouble() * 100).round();
 
   }
+}
+
+void initTrainer() {
+  var target = querySelector('#targettext').text;
+  var tr = new Trainer(target);
+  var input = querySelector('#tarea');
+  var output = querySelector('#test');
+  input.onKeyUp.listen((e) {
+        
+        String typed = input.value.split('')[tr.currentposition];
+    if (typed != tr.charAtPosition() ) {
+      output.text = 'Error: ' + typed;
+
+      tr.currentposforward();
+    } else {
+      tr.currentposforward();
+    }
+  });
 }
