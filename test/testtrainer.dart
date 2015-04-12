@@ -31,6 +31,10 @@ void main() {
     expect(tr.accuracy(), 78);
     tr.errors = 1;
     expect(tr.accuracy(), 89);
+    tr.errors = 9;
+    expect(tr.accuracy(), 0);
+    tr.errors = 0;
+    expect(tr.accuracy(), 100);
   });
   
 }
