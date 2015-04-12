@@ -28,12 +28,16 @@ void main() {
   test('calculate accuracy', () {
     var tr = new Trainer('some text');
     tr.errors = 2;
+    tr.currentposition = 8;
     expect(tr.accuracy(), 78);
     tr.errors = 1;
+    tr.currentposition = 8;
     expect(tr.accuracy(), 89);
     tr.errors = 9;
+    tr.currentposition = 8;
     expect(tr.accuracy(), 0);
     tr.errors = 0;
+    tr.currentposition = 8;
     expect(tr.accuracy(), 100);
   });
   
