@@ -5,11 +5,13 @@ import 'dart:html';
 
 import 'package:workmantrainer/nav_menu.dart';
 import 'package:route_hierarchical/client.dart';
+import 'package:workmantrainer/trainer.dart' show initTrainer;
 import 'package:workmantrainer/practicetext.dart' show practiceText;
 
 void main() {
   initNavMenu();
   practiceText('some Text');
+  initTrainer();
 
   // Webapps need routing to listen for changes to the URL.
   var router = new Router();
