@@ -17,7 +17,7 @@ class Trainer {
 
   int currentposbackward() => _currentposition--;
 
-  String charAtPosition() => targettext.split('')[_currentposition];
+  String charAtPosition() => targettext.split('')[this._currentposition];
 
   set errors(int n) => _errors = n;
 
@@ -31,11 +31,15 @@ class Trainer {
       case KeyCode.SHIFT:
         break;
       case KeyCode.BACKSPACE:
-        if (_currentposition > 0) {
-          currentposbackward();
+        if (this._currentposition > 0) {
+          this.currentposbackward();
           break;
         }
         break;
+      default:
+        this.currentposforward();
+        var te = querySelector('#test');
+        te.text = 'Typed: ' + k.charCode.toString() + this.currentposition.toString();
     }
   }
 }
@@ -44,7 +48,7 @@ void initTrainer() {
   var tr = new Trainer(target);
   var input = querySelector('#tarea');
   input.onKeyUp.listen((e) {
-    while (tr.currentposition < target.length) {
+    if (tr.currentposition < target.length) {
       tr.handleKeyEvent(e);
     }
   });
