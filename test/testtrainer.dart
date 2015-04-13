@@ -39,6 +39,10 @@ void main() {
     tr.errors = 0;
     tr.currentposition = 8;
     expect(tr.accuracy(), 100);
+    tr.errors = 1;
+    tr.currentposition = 0;
+    expect(tr.accuracy(),0);
   });
   
 }
+  
