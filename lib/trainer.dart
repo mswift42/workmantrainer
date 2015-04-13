@@ -27,22 +27,33 @@ class Trainer{
     return 100 - (_errors.toDouble() / sofar.length.toDouble() * 100).round();
 
   }
+  void handleKeyEvent(Event e) {
+    KeyEvent k = new KeyEvent.wrap(e);
+    switch (k.keyCode) {
+      case KeyCode.SHIFT:
+        break;
+      case KeyCode.BACKSPACE:
+        if (_currentposition > 0) {
+          currentposbackward();
+          break;
+        }
+        break;
+    }
+        
+        
 }
 
 void initTrainer() {
   var target = querySelector('#targettext').text;
   var tr = new Trainer(target);
   var input = querySelector('#tarea');
-  var output = querySelector('#test');
   input.onKeyUp.listen((e) {
-        
-        String typed = input.value.split('')[tr.currentposition];
-    if (typed != tr.charAtPosition() ) {
-      output.text = 'Error: ' + typed;
-
-      tr.currentposforward();
-    } else {
-      tr.currentposforward();
-    }
-  });
+        while (tr.currentposition < target.length) {
+          
+    tr.handleKeyEvent(e);
+        }
+      });
 }
+      
+
+
