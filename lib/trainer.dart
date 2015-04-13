@@ -17,7 +17,7 @@ class Trainer {
 
   int currentposbackward() => _currentposition--;
 
-  String charAtPosition() => targettext.split('')[this._currentposition];
+  String charAtPosition() => targettext.split('')[this.currentposition];
 
   set errors(int n) => _errors = n;
 
@@ -27,19 +27,20 @@ class Trainer {
   }
   void handleKeyEvent(Event e) {
     KeyEvent k = new KeyEvent.wrap(e);
+    var tinput = querySelector('#tarea');
     switch (k.keyCode) {
       case KeyCode.SHIFT:
         break;
       case KeyCode.BACKSPACE:
-        if (this._currentposition > 0) {
+        if (this.currentposition > 0) {
           this.currentposbackward();
           break;
         }
         break;
       default:
-        this.currentposforward();
         var te = querySelector('#test');
-        te.text = 'Typed: ' + k.charCode.toString() + this.currentposition.toString();
+        te.text = 'Typed: ' + tinput.text.split('')[this.currentposition];
+        this.currentposforward();
     }
   }
 }
