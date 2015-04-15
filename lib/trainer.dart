@@ -47,12 +47,6 @@ class Trainer {
         var te = querySelector('#test');
         var typed = tinput.value.split('')[_currentposition];
         checkAtPosition(_currentposition,typed);
-        print(typeCheck.toString());
-        if (typed != charAtCurrentPosition()) {
-          
-        
-        te.text = 'Error: ' + charAtCurrentPosition() + '!=' + typed;
-        }
         this.currentposforward();
     }
   }
