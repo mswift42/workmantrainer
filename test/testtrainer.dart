@@ -43,6 +43,12 @@ void main() {
     tr.currentposition = 0;
     expect(tr.accuracy(),0);
   });
+  test('targetCharAtPosition returns correct character', () {
+    var tr = new Trainer('some Text');
+    expect(targetCharAtPosition(0), 's');
+    expect(targetCharAtPosition(1), 'o');
+    expect(targetCharAtPosition(8), 't');
+  });
   test('add to checkTypedCorrectly', () {
     var tr = new Trainer('some text');
     tr.checkAtPosition(0,'t');
