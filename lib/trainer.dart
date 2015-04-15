@@ -7,7 +7,8 @@ class Trainer {
   int _currentposition = 0;
   String targettext;
   int _errors;
-
+  Map<int,bool> typeCheck;
+  
   Trainer(this.targettext);
 
   int get currentposition => _currentposition;
@@ -25,6 +26,10 @@ class Trainer {
     var sofar = targettext.split('').getRange(0, _currentposition + 1);
     return 100 - (_errors.toDouble() / sofar.length.toDouble() * 100).round();
   }
+  void checkAtPosition(int index, String character) {
+    typeCheck[index] = (targettext.split('')[index] == character);
+  }
+  
   void handleKeyEvent(Event e) {  
     KeyEvent k = new KeyEvent.wrap(e);
     var tinput = querySelector('#tarea');
