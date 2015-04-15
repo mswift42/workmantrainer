@@ -19,7 +19,7 @@ class Trainer {
   int currentposbackward() => _currentposition--;
 
   String charAtCurrentPosition() => targettext.split('')[this.currentposition];
-  String targetCharAtPosition(int index) => targettext.split('')[index];
+  String targetCharAtPosition(int pos) => targettext.split('')[pos];
 
   set errors(int n) => _errors = n;
 
@@ -28,7 +28,7 @@ class Trainer {
     return 100 - (_errors.toDouble() / sofar.length.toDouble() * 100).round();
   }
   void checkAtPosition(int pos, String character) {
-    typeCheck[pos] = (targettext.split('')[pos] == character);
+    typeCheck[pos] = (targetCharAtPosition(pos) == character);
   }
   
   void handleKeyEvent(Event e) {  
