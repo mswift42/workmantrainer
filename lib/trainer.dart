@@ -7,7 +7,7 @@ class Trainer {
   int _currentposition = 0;
   String targettext;
   int _errors;
-  Map<int,bool> typeCheck;
+  Map<int,bool> typeCheck = new Map<int,bool>();
   
   Trainer(this.targettext);
 
@@ -27,8 +27,8 @@ class Trainer {
     var sofar = targettext.split('').getRange(0, _currentposition + 1);
     return 100 - (_errors.toDouble() / sofar.length.toDouble() * 100).round();
   }
-  void checkAtPosition(int index, String character) {
-    typeCheck[index] = (targetCharAtPosition == character) ? true : false;
+  void checkAtPosition(int pos, String character) {
+    typeCheck[pos] = (targettext.split('')[pos] == character);
   }
   
   void handleKeyEvent(Event e) {  
@@ -46,6 +46,8 @@ class Trainer {
       default:
         var te = querySelector('#test');
         var typed = tinput.value.split('')[_currentposition];
+        checkAtPosition(_currentposition,typed);
+        print(typeCheck.toString());
         if (typed != charAtCurrentPosition()) {
           
         
