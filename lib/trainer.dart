@@ -13,7 +13,7 @@ class Trainer {
   int get currentposition => _currentposition;
   set currentposition(int n) => _currentposition = n;
 
-  int currentposforward() => _currentposition++;
+  int currentposforward() => this._currentposition++;
 
   int currentposbackward() => _currentposition--;
 
@@ -25,13 +25,13 @@ class Trainer {
     var sofar = targettext.split('').getRange(0, _currentposition + 1);
     return 100 - (_errors.toDouble() / sofar.length.toDouble() * 100).round();
   }
-  void handleKeyEvent(Event e) {
+  void handleKeyEvent(Event e) {  
     KeyEvent k = new KeyEvent.wrap(e);
     var tinput = querySelector('#tarea');
     switch (k.keyCode) {
       case KeyCode.SHIFT:
         break;
-      case KeyCode.BACKSPACE:
+         case KeyCode.BACKSPACE:
         if (this.currentposition > 0) {
           this.currentposbackward();
           break;
@@ -39,7 +39,12 @@ class Trainer {
         break;
       default:
         var te = querySelector('#test');
-        te.text = 'Typed: ' + tinput.text.split('')[this.currentposition];
+        var typed = tinput.value.split('')[_currentposition];
+        if (typed != charAtPosition()) {
+          
+        
+        te.text = 'Error: ' + charAtPosition() + '!=' + typed;
+        }
         this.currentposforward();
     }
   }
@@ -50,6 +55,7 @@ void initTrainer() {
   var input = querySelector('#tarea');
   input.onKeyUp.listen((e) {
     if (tr.currentposition < target.length) {
+      print(tr.currentposition);
       tr.handleKeyEvent(e);
     }
   });
