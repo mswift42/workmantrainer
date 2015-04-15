@@ -45,9 +45,9 @@ void main() {
   });
   test('targetCharAtPosition returns correct character', () {
     var tr = new Trainer('some Text');
-    expect(targetCharAtPosition(0), 's');
-    expect(targetCharAtPosition(1), 'o');
-    expect(targetCharAtPosition(8), 't');
+    expect(tr.targetCharAtPosition(0), 's');
+    expect(tr.targetCharAtPosition(1), 'o');
+    expect(tr.targetCharAtPosition(8), 't');
   });
   test('add to checkTypedCorrectly', () {
     var tr = new Trainer('some text');
@@ -56,7 +56,7 @@ void main() {
     tr.checkAtPosition(8,'t');
     expect(tr.typeCheck[0],false);
     expect(tr.typeCheck[1],true);
-    expect(tr.typeCheck[2],true);
+    expect(tr.typeCheck[8],true);
   });
     
   
