@@ -18,7 +18,8 @@ class Trainer {
 
   int currentposbackward() => _currentposition--;
 
-  String charAtPosition() => targettext.split('')[this.currentposition];
+  String charAtCurrentPosition() => targettext.split('')[this.currentposition];
+  String targetCharAtPosition(int index) => targettext.split('')[index];
 
   set errors(int n) => _errors = n;
 
@@ -27,7 +28,7 @@ class Trainer {
     return 100 - (_errors.toDouble() / sofar.length.toDouble() * 100).round();
   }
   void checkAtPosition(int index, String character) {
-    typeCheck[index] = (targettext.split('')[index] == character);
+    typeCheck[index] = (targetCharAtPosition == character) ? true : false;
   }
   
   void handleKeyEvent(Event e) {  
@@ -45,10 +46,10 @@ class Trainer {
       default:
         var te = querySelector('#test');
         var typed = tinput.value.split('')[_currentposition];
-        if (typed != charAtPosition()) {
+        if (typed != charAtCurrentPosition()) {
           
         
-        te.text = 'Error: ' + charAtPosition() + '!=' + typed;
+        te.text = 'Error: ' + charAtCurrentPosition() + '!=' + typed;
         }
         this.currentposforward();
     }
