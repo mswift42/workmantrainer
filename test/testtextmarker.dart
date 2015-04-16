@@ -15,4 +15,16 @@ void main() {
     expect(span.text, 'so');
     expect(span.className, 'typedcorrect');
   });
+  test('typedIncorrectly returns correct span element.', () {
+    var tm = new TextMarker('some text', 0, 9, "INCORRECT");
+    var span = tm.typedIncorrectly();
+    expect(span.text, 'some text');
+    expect(span.className, 'typedincorrect');
+  });
+  test('yetToBeTyped returns correct span element.', () {
+    var tm = new TextMarker('some text', 0,1,'NOTTYPED');
+    var span = tm.yetToBeTyped();
+    expect(span.text, 's');
+    expect(span.className, 'nottyped');
+  });
 }
