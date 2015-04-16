@@ -6,7 +6,7 @@ class TextMarker {
   List<String> characters;
   int startposition;
   int endposition;
-  enum textState(CORRECT, INCORRECT, TOBETYPED);
+  String textState; // were characters from start to end position typed correctly.
 
   TextMarker(this.characters,this.startposition, this.endposition,this.textState);
 }
