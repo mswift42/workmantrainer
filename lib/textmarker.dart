@@ -12,7 +12,7 @@ class TextMarker {
 
   SpanElement textSpan(String classname) {
     var span = new SpanElement()
-      ..classes.add(classname)
+      ..className = classname
       ..text = targettext.substring(startposition,endposition);
     return span;
   }
