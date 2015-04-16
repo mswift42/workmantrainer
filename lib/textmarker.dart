@@ -10,20 +10,20 @@ class TextMarker {
 
   TextMarker(this.targettext,this.startposition, this.endposition,this.textState);
 
-  SpanElement textSpan(int start,end, String classname) {
+  SpanElement textSpan(String classname) {
     var span = new SpanElement()
       ..classes.add(classname)
-      ..text = targettext.substring(start,end);
+      ..text = targettext.substring(startposition,endposition);
     return span;
   }
-  SpanElement typedCorrectly(int start,end) {
-    return textSpan(start,end, 'typedcorrect');
+  SpanElement typedCorrectly() {
+    return textSpan('typedcorrect');
   }
-  SpanElement typedIncorrectly(int start,end) {
-    return textSpan(start,end, 'typedincorrect');
+  SpanElement typedIncorrectly() {
+    return textSpan('typedincorrect');
   }
-  SpanElement yetToBeTyped(int start,end) {
-    return textSpan(start,end, 'nottyped');
+  SpanElement yetToBeTyped() {
+    return textSpan('nottyped');
   }
 }
 
