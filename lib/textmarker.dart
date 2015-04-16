@@ -16,6 +16,14 @@ class TextMarker {
       ..text = targettext.substring(start,end);
     return span;
   }
+  SpanElement typedCorrectly(int start,end) {
+    return textSpan(start,end, 'typedcorrect');
+  }
+  SpanElement typedIncorrectly(int start,end) {
+    return textSpan(start,end, 'typedincorrect');
+  }
+  SpanElement yetToBeTyped(int start,end) {
+    return textSpan(start,end, 'nottyped');
+  }
 }
-  
 
