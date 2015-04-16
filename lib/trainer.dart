@@ -22,7 +22,8 @@ class Trainer {
   String targetCharAtPosition(int pos) => targettext.split('')[pos];
 
   set errors(int n) => _errors = n;
-
+  
+  // return ration of correctly typed characters to amount of text characters.
   int accuracy() {
     var sofar = targettext.split('').getRange(0, _currentposition + 1);
     return 100 - (_errors.toDouble() / sofar.length.toDouble() * 100).round();
