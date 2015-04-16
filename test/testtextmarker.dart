@@ -10,8 +10,9 @@ void main() {
     expect(tm.textState, 'CORRECT');
   });
   test('typedCorrectly returns correct span element.', () {
-    var tm = new TextMarker('some text', 0, 2, "Correct");
+    var tm = new TextMarker('some text', 0, 2, "CORRECT");
     var span = tm.typedCorrectly();
     expect(span.text, 'so');
+    expect(span.className, 'typedcorrect');
   });
 }
