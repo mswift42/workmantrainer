@@ -25,5 +25,16 @@ class TextMarker {
   SpanElement yetToBeTyped() {
     return textSpan('nottyped');
   }
+  SpanElement markedText() {
+    switch (textState) {
+     case  'CORRECT': 
+      return typedCorrectly();
+     case  'INCORRECT':
+        return typedIncorrectly();
+      default:
+        return yetToBeTyped();
+    }
+  }
+        
 }
 
