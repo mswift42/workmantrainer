@@ -33,5 +33,13 @@ void main() {
     var span = tm.markedText();
     expect(span.text, 's');
     expect(span.className, 'typedcorrect');
-  });
+    var tm2 = new TextMarker('some text', 0,3,'INCORRECT');
+    var span2 = tm2.markedText();
+    expect(span2.text, 'som');
+    expect(span2.className, 'typedincorrect');
+    var tm3 = new TextMarker('some text', 0,2,'NOTTYPED');
+    var span3 = tm3.markedText();
+    expect(span3.text, 'so');
+    expect(span3.className, 'nottyped');
+      });
 }
