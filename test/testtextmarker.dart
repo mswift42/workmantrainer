@@ -1,3 +1,4 @@
+
 import 'package:unittest/unittest.dart';
 import 'package:workmantrainer/textmarker.dart';
 
@@ -26,5 +27,11 @@ void main() {
     var span = tm.yetToBeTyped();
     expect(span.text, 's');
     expect(span.className, 'nottyped');
+  });
+  test('mark Text function returns appropriate span element', () {
+    var tm = new TextMarker('some text', 0, 1,'CORRECT');
+    var span = tm.markedText();
+    expect(span.text, 's');
+    expect(span.className, 'typedcorrect');
   });
 }
