@@ -55,9 +55,12 @@ class Trainer {
   }
 }
 void initTrainer() {
-  var target = querySelector('#targettext');
-  var tr = new Trainer(target.text);
+  var target = "This is some text that has to be typed exactly as it is.";
+  var tr = new Trainer(target);
   var input = querySelector('#tarea');
+  var tm = new TextMarker(target,0, target.length,'');
+  var span = tm.yetToBeTyped();
+  querySelector('#targettextcontainer').append(span);
   input.onKeyUp.listen((e) {
     if (tr.currentposition < target.length) {
       print(tr.currentposition);
