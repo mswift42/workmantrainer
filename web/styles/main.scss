@@ -334,5 +334,11 @@ sass-hidden {
     background-color:#ffffff;
 }
 .typedcorrect {
-     color:#000000;
+     color:#green;
+}
+.typedincorrect {
+    color:red;
+}
+.nottyped {
+    color:#000;
 }
