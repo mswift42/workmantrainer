@@ -10,7 +10,6 @@ import 'package:workmantrainer/practicetext.dart' show practiceText;
 
 void main() {
   initNavMenu();
-  practiceText('some Text');
   initTrainer();
 
   // Webapps need routing to listen for changes to the URL.
