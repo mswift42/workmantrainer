@@ -2,6 +2,8 @@ library trainer;
 
 import 'dart:html';
 import 'dart:convert';
+import 'package:workmantrainer/textmarker.dart' show TextMarker;
+
 
 class Trainer {
   int _currentposition = 0;
@@ -53,8 +55,8 @@ class Trainer {
   }
 }
 void initTrainer() {
-  var target = querySelector('#targettext').text;
-  var tr = new Trainer(target);
+  var target = querySelector('#targettext');
+  var tr = new Trainer(target.text);
   var input = querySelector('#tarea');
   input.onKeyUp.listen((e) {
     if (tr.currentposition < target.length) {
