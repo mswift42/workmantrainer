@@ -1,12 +1,11 @@
 import 'package:unittest/unittest.dart';
-import 'dart:html';
-import 'package:workmantrainer/practicetext.dart' show practiceText;
+import 'package:workmantrainer/practicetext.dart' as pt;
 
 void main() {
-  var target = document.querySelector('#targettext');
-  practiceText('Test Text 1');
-  test('set practice text', () {
-    expect(target.text, 'Test Text 1');
+  
+  test('make a list of random words', () {
+    var words = pt.randomWords(pt.pluswf);
+    expect(words.length, 140);
   });
  
 }
